@@ -25,4 +25,5 @@ Route::middleware('web')->group(function() {
     
     });
 
+    Route::redirect('/login', '/auth/saml2/redirect')->name('login');
 });

@@ -12,9 +12,5 @@ class Saml2ServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../routes/saml2.php');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'saml2');
         $this->loadTranslationsFrom(__DIR__ . '/../lang/saml2.php', 'saml2');
-
-        Authenticate::redirectUsing(function() {
-            return redirect()->route('auth.saml2.redirect');
-        });
     }
 }
