@@ -60,4 +60,12 @@ class Saml2
             static::driver()->stateless()->user()->getRaw()
         );
     }
+
+    /**
+     * Load the default SAML2 configuration.
+     */
+    public static function config(): array
+    {
+        return require __DIR__ . '/../../config/saml2.php';
+    }
 }
