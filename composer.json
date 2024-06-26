@@ -1,0 +1,37 @@
+{
+    "name": "sturabtu/stura-saml2",
+    "type": "library",
+    "description": "The saml2 service provider package for stura services",
+    "keywords": ["stura", "saml2"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julius Kiekbusch",
+            "email": "contact@julius-kiekbusch.de"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "laravel/framework": "^11.0",
+        "laravel/socialite": "^5.14.0",
+        "socialiteproviders/saml2": "^4.7.2"
+    },
+    "require-dev": {
+        "larastan/larastan": "^2.9.7",
+        "laravel/pint": "^1.16.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "StuRaBtu\\Saml2\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "StuRaBtu\\Saml2\\Saml2ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
