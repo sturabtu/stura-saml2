@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use SocialiteProviders\Manager\SocialiteWasCalled;
 use SocialiteProviders\Saml2\Saml2ExtendSocialite;
+use StuRaBtu\Saml2\Http\Responses\LogoutResponse;
 
 class Saml2ServiceProvider extends ServiceProvider
 {

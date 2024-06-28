@@ -1,6 +1,6 @@
 <?php
 
-namespace Filament\Http\Responses\Auth;
+namespace StuRaBtu\Saml2\Http\Responses;
 
 use Filament\Http\Responses\Auth\Contracts\LogoutResponse as LogoutResponseContract;
 use Illuminate\Http\RedirectResponse;
