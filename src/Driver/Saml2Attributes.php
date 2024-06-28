@@ -29,7 +29,8 @@ class Saml2Attributes
             'btu_id' => $this->asString('samlSubjectID'),
             'name' => $this->asString('cn'),
             'email' => $this->asString('mail'),
-            'permissions' => $this->asArray('permissions'),
+            'groups' => $this->asArray('groups'),
+            'permissions' => $this->asArray('roles'),
         ];
     }
 
