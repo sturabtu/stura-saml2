@@ -43,6 +43,7 @@ class Saml2
         $attributes = static::attributes()->all();
 
         $user = User::where('btu_id', $attributes['btu_id'])->first();
+        $user ??= User::where('email', $attributes['email'])->first();
         $user ??= new User;
 
         $user->fill($attributes);
