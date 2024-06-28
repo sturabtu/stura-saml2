@@ -40,7 +40,7 @@ class Saml2Controller
         try {
             $user = Saml2::user();
 
-            Auth::login($user, remember: $user->permissions !== null && $user->permissions->isNotEmpty());
+            Auth::login($user, remember: false);
             $request->session()->regenerate();
 
             return Redirect::route('dashboard');
