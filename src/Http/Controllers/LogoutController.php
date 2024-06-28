@@ -19,6 +19,6 @@ class LogoutController
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::route('welcome');
+        return Redirect::to('/');
     }
 }

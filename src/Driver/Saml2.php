@@ -67,6 +67,6 @@ class Saml2
      */
     public static function config(): array
     {
-        return require __DIR__ . '/../../config/saml2.php';
+        return require __DIR__.'/../../config/saml2.php';
     }
 }

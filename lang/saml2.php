@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
 
@@ -10,5 +10,5 @@ return [
 
         'login' => 'Erneut versuchen // Try again',
     ],
-    
+
 ];

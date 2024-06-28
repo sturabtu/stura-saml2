@@ -4,7 +4,6 @@ namespace StuRaBtu\Saml2\Driver;
 
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Str;
 use LightSaml\Model\Assertion\Attribute;
 
 class Saml2Attributes
