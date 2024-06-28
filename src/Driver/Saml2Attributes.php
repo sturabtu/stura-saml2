@@ -25,7 +25,7 @@ class Saml2Attributes
     public function all(): array
     {
         return [
-            'btu_id' => $this->asString('samlSubjectID'),
+            'btu_id' => $this->asString('upn'),
             'name' => $this->asString('cn'),
             'email' => $this->asString('mail'),
             'groups' => $this->asArray('groups'),
