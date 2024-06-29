@@ -28,8 +28,18 @@ class Saml2Controller
     /**
      * Redirect the user to the SAML2 authentication page.
      */
-    public function redirect(): RedirectResponse|SymfonyRedirectResponse
+    public function redirect(Request $request): RedirectResponse|SymfonyRedirectResponse
     {
+        if (! App::isProduction()) {
+
+            $user = User::where('email', 'test@example.com')->first();
+
+            Auth::login($user, remember: false);
+            $request->session()->regenerate();
+
+            return Redirect::route('dashboard');
+        }
+
         return Saml2::redirectToIdentityProvider();
     }
 
@@ -39,7 +49,7 @@ class Saml2Controller
     public function callback(Request $request): RedirectResponse|View
     {
         try {
-            $user = App::isProduction() ? Saml2::user() : User::first();
+            $user = Saml2::user();
 
             Auth::login($user, remember: false);
             $request->session()->regenerate();
