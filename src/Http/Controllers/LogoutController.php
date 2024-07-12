@@ -20,8 +20,6 @@ class LogoutController
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        Cookie::forget('is_authenticated');
-
-        return Redirect::to('/');
+        return Redirect::to('/')->withoutCookie('is_authenticated');
     }
 }
