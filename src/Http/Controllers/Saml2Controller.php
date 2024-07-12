@@ -14,6 +14,7 @@ use LightSaml\Error\LightSamlException;
 use StuRaBtu\Saml2\Driver\Saml2;
 use Symfony\Component\HttpFoundation\RedirectResponse as SymfonyRedirectResponse;
 use App\Models\User;
+use Illuminate\Support\Facades\Cookie;
 
 class Saml2Controller
 {
@@ -31,11 +32,12 @@ class Saml2Controller
     public function redirect(Request $request): RedirectResponse|SymfonyRedirectResponse
     {
         if (! App::isProduction()) {
-
             $user = User::where('email', 'test@example.com')->first();
 
             Auth::login($user, remember: false);
             $request->session()->regenerate();
+
+            Cookie::queue('is_authenticated', true, 30 * 24 * 60);
 
             return Redirect::route('dashboard');
         }
@@ -53,6 +55,8 @@ class Saml2Controller
 
             Auth::login($user, remember: false);
             $request->session()->regenerate();
+
+            Cookie::queue('is_authenticated', true, 30 * 24 * 60);
 
             return Redirect::route('dashboard');
         } catch (LightSamlException) {
