@@ -5,6 +5,7 @@ namespace StuRaBtu\Saml2\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redirect;
 
 class LogoutController
@@ -18,6 +19,8 @@ class LogoutController
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
+        Cookie::forget('is_authenticated');
 
         return Redirect::to('/');
     }
