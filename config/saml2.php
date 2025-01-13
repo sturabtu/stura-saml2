@@ -25,10 +25,14 @@ return [
     'sp_sign_assertions' => true,
 
     // 'path/to/sp_saml.crt'
-    'sp_certificate' => file_get_contents(storage_path('app/keys/sp_saml.crt')),
+    'sp_certificate' => file_exists(storage_path('app/keys/sp_saml.crt'))
+        ? file_get_contents(storage_path('app/keys/sp_saml.crt'))
+        : null,
 
     // 'path/to/sp_saml.pem'
-    'sp_private_key' => file_get_contents(storage_path('app/keys/sp_saml.pem')),
+    'sp_private_key' => file_exists(storage_path('app/keys/sp_saml.pem'))
+        ? file_get_contents(storage_path('app/keys/sp_saml.pem'))
+        : null,
 
     'sp_private_key_passphrase' => env('SAML2_SP_PRIVATE_KEY_PASSPHRASE'),
 
